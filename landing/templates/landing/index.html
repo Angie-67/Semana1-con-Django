@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechNova Solutions - Transformamos ideas en soluciones digitales">
+    <title>{{ titulo }} | Inicio</title>
+    <link rel="stylesheet" href="{% static 'landing/css/styles.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <nav class="container">
+            <a href="{% url 'home' %}" class="logo">Tech<span>Nova</span></a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto" class="btn btn-outline">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>{{ eslogan }}</h1>
+                <p>Desarrollamos software empresarial a medida con las tecnologías más modernas del mercado. Lleva tu negocio al siguiente nivel.</p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary">Comenzar ahora</a>
+                    <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container stats-grid">
+                {% for stat in estadisticas %}
+                <div class="stat">
+                    <span class="stat-numero">{{ stat.numero }}</span>
+                    <span class="stat-etiqueta">{{ stat.etiqueta }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="servicios" class="servicios">
+            <div class="container">
+                <h2>Nuestros servicios</h2>
+                <p class="seccion-subtitulo">Soluciones integrales para tu empresa</p>
+                <div class="cards-grid">
+                    {% for item in caracteristicas %}
+                    <article class="card">
+                        <span class="card-icono">{{ item.icono }}</span>
+                        <h3>{{ item.titulo }}</h3>
+                        <p>{{ item.descripcion }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="nosotros">
+            <div class="container nosotros-contenido">
+                <div>
+                    <h2>¿Por qué elegirnos?</h2>
+                    <p>Somos un equipo de desarrolladores y diseñadores apasionados por crear productos digitales excepcionales. Cada proyecto lo tratamos como si fuera el único.</p>
+                    <ul class="lista-check">
+                        <li>Equipo certificado en tecnologías web</li>
+                        <li>Metodologías ágiles de desarrollo</li>
+                        <li>Soporte técnico 24/7</li>
+                        <li>Entregas puntuales garantizadas</li>
+                    </ul>
+                </div>
+                <div class="nosotros-card">
+                    <h3>Tu proyecto, nuestra prioridad</h3>
+                    <p>Agenda una consulta gratuita hoy mismo.</p>
+                    <a href="#contacto" class="btn btn-primary">Agendar consulta</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <div class="container contacto-contenido">
+                <h2>¿Listo para empezar?</h2>
+                <p>Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas.</p>
+                <form class="form-contacto">
+                    <input type="text" name="nombre" placeholder="Tu nombre" required>
+                    <input type="email" name="correo" placeholder="Tu correo electrónico" required>
+                    <textarea name="mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-contenido">
+            <p>&copy; 2026 {{ titulo }}. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Términos</a>
+                <a href="#">Privacidad</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
